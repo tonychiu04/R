@@ -1,0 +1,35 @@
+---
+title: "tw2330"
+author: "TONY"
+date: "2016年3月14日"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+download.file("http://real-chart.finance.yahoo.com/table.csv?s=2330.TW&d=2&e=14&f=2016&g=d&a=0&b=4&c=2000&ignore=.csv", "2330.csv")
+```
+
+
+
+```{r}
+
+tw2330 = read.csv("2330.csv", header=TRUE)
+
+max(tw2330$Close)
+min(tw2330$Close)
+summary(tw2330$Close)
+hist(tw2330$Close)
+
+lower_bound = max(min(tw2330$Close), median(tw2330$Close) - 1.5 * IQR(tw2330$Close))
+upper_bound = min(max(tw2330$Close), median(tw2330$Close) + 1.5 * IQR(tw2330$Close))
+
+class(tw2330)
+str(tw2330)
+tw2330$Date = as.Date(tw2330$Date)
+str(tw2330)
+plot(tw2330$Date, tw2330$Close)
+tw2330$tf = tw2330$Close - tw2330$Open > 0
+table(tw2330$tf)
+```
+
+
