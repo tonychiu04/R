@@ -1,5 +1,5 @@
 ---
-title: "tw2330"
+title: "Untitled"
 author: "TONY"
 date: "2016年3月14日"
 output: html_document
@@ -8,7 +8,6 @@ output: html_document
 ```{r setup, include=FALSE}
 download.file("http://real-chart.finance.yahoo.com/table.csv?s=2330.TW&d=2&e=14&f=2016&g=d&a=0&b=4&c=2000&ignore=.csv", "2330.csv")
 ```
-
 
 
 ```{r}
@@ -30,6 +29,7 @@ str(tw2330)
 plot(tw2330$Date, tw2330$Close)
 tw2330$tf = tw2330$Close - tw2330$Open > 0
 table(tw2330$tf)
-```
 
+
+```
 
